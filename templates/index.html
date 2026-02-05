@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease AI</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-leaf"></i>
+                <span>AgroScan AI</span>
+            </div>
+            <p class="subtitle">Advanced Deep Learning for Crop Health</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+            
+            <!-- Upload Section -->
+            <div class="card upload-card">
+                <h2>Analyze Plant Leaf</h2>
+                <div class="upload-area" id="drop-zone">
+                    <div class="icon-container">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                    </div>
+                    <h3>Drag & Drop Image Here</h3>
+                    <p>or</p>
+                    <input type="file" id="file-input" hidden accept="image/*">
+                    <button class="btn-primary" onclick="document.getElementById('file-input').click()">
+                        Browse Files
+                    </button>
+                    <p class="file-info" id="file-name"></p>
+                </div>
+                
+                <button class="btn-analyze" id="analyze-btn" disabled>
+                    <i class="fa-solid fa-microchip"></i> Run Diagnostics
+                </button>
+                
+                <!-- Loading State -->
+                <div class="loading-overlay" id="loading">
+                    <div class="spinner"></div>
+                    <p>Processing Neural Network...</p>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="card results-card" id="results-section">
+                <h2>Analysis Results</h2>
+                
+                <div class="results-visual">
+                    <!-- Original -->
+                    <div class="image-box">
+                        <span class="badge">Original</span>
+                        <img id="original-preview" src="" alt="Original Upload">
+                    </div>
+                    
+                    <!-- Arrow -->
+                    <div class="process-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+
+                    <!-- Prediction -->
+                    <div class="image-box">
+                        <span class="badge glow">AI Detection</span>
+                        <img id="result-preview" src="" alt="AI Analysis">
+                    </div>
+                </div>
+
+                <div class="status-box">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <div>
+                        <h4>Detection Complete</h4>
+                        <p>Red areas indicate diseased tissue identified by the U-Net model.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>Powered by PyTorch & Roboflow • Coded by Antigravity</p>
+        </footer>
+
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
